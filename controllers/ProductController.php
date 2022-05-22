@@ -24,4 +24,13 @@ class ProductController {
         return $product;
       }
     }
+    public function getProduct(){
+      if(isset($_POST["product_id"])){
+        $data = array(
+          'id' => $_POST["product_id"]
+        );
+        $product = Product::getProductById($data);
+        return $product;
+      }
+    }
 }

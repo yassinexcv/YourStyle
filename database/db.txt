@@ -1,0 +1,11 @@
+
+Textes complets
+product_id	
+product_title	
+product_category_id	
+product_price	
+old_price	
+product_quantity	
+product_description Croissant 1	
+short_desc	
+product_image
