@@ -26,7 +26,7 @@
                         <a href="#" onclick="addProduct()" class="link-dark">Ajouter a la cart</a>
                         
                     </button> -->
-                    <button onclick="addProduct()">Try</button>
+                    <button onclick="addProduct()">ajouter</button>
                 </div>
             </div>
         </div>
