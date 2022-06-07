@@ -21,12 +21,10 @@
             </div>
             <div class="col">
                 <div class="bynow">
-                    <!-- <button type="submit" name="test" class=" link-dark">
-                        
-                        <a href="#" onclick="addProduct()" class="link-dark">Ajouter a la cart</a>
-                        
-                    </button> -->
                     <button onclick="addProduct()">ajouter</button>
+                </div>
+                <div class="cart">
+                <a class="btn btn-primary" href="cart" role="button">Cart</a>
                 </div>
             </div>
         </div>
