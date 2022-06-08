@@ -14,7 +14,7 @@ class UsersController
                 $_SESSION["admin"] = $result->admin;
                 $_SESSION["user_id"] = $result->user_id;
                 // Redirect::to("home");
-                header("Location: " . BASE_URL . "home");
+                header("Location: " . BASE_URL);
             }else{
                 Session::set("error","Pseudo ou mot de passe est incorrect");
                 Redirect::to("login");
@@ -46,6 +46,6 @@ class UsersController
     public function logout()
     {
        session_destroy();
-       header("Location: " . BASE_URL . "home");
+       header("Location: " . BASE_URL);
     }
 }
