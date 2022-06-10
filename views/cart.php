@@ -62,13 +62,13 @@ body {
 
         <script>
             window.onload = function() {
-                const cart = JSON.parse(localStorage.getItem('userInfo'));
+                const cart = JSON.parse(localStorage.getItem('userInfo<?php if(isset($_SESSION["user_id"]))echo $_SESSION["user_id"]?>'));
                 let html = '';
                 // console.log(cart);return;
                 cart.forEach(function(item) {
                     html += `
                         <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
-                            <div class="mr-1"><img class="rounded" src="https://i.imgur.com/XiFJkhI.jpg" width="70"></div>
+                            <div class="mr-1"><img class="rounded" src="./public/products/${item.product_image}" width="70"></div>
                             <div class="d-flex flex-column align-items-center product-details"><span class="font-weight-bold">${item.product_title}</span>
                                 <div class="d-flex flex-row product-desc">
                                 ${item.short_desc}

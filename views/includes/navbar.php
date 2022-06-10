@@ -10,13 +10,11 @@
         <a class="nav-link" href="<?php echo BASE_URL;?>">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo BASE_URL;?>cart">
+        <a class="nav-link" href="<?php echo BASE_URL;?>cart"><i class="bi-cart-fill me-1"></i>
           Panier
-          <?php if(isset($_SESSION["count"]) && $_SESSION["count"] > 0):?>
-            (<?php echo $_SESSION["count"];?>)      
-          <?php else:?>
-            (0)
-          <?php endif;?> 
+          <script>
+          // afficher le nombre d'article dans le panier
+          </script>
         </a>
       </li>
       <li class="nav-item dropdown">
@@ -25,6 +23,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true):?>
+            <!-- <input type="text" value="<?php echo $_SESSION["username"]?>"> -->
           <a class="dropdown-item" href="#"><?php echo $_SESSION["fullname"];?></a>
           <a class="dropdown-item" href="<?php echo BASE_URL;?>logout">Déconnexion</a>
           <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true):?>
