@@ -1,3 +1,8 @@
+<?php
+$categories = new CategoriesController();
+$categories = $categories->getAllCategories();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="<?php echo BASE_URL;?>">PHP STORE</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +40,18 @@
         </div>
         <?php endif;?> 
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          catrgories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <?php foreach($categories as $category):?>
+            <a class='dropdown-item' href='?page=category&id=<?php echo $category['cat_id']; ?>'><?=$category["cat_title"]?></a>
+          <?php endforeach;?>
+        </div>
+      </li>
     </ul>
+  </div>
+  
   </div>
 </nav>
