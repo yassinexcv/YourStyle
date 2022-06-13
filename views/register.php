@@ -1,13 +1,12 @@
 <?php
     if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true){
-        Redirect::to("home");
+      header("Location: " . BASE_URL);
     }
     if(isset($_POST["register"])){
 
-       
-        
         $createUser = new UsersController();
         $createUser->register();
+        header("Location: " . BASE_URL."login");
     }
 ?>
 

@@ -2,6 +2,7 @@
 
     $loginUser = new UsersController();
     $loginUser->auth();
+    
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
                 <label for="floatingInputUsername">username</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="password" name="password" required autofocus>
+                <input type="password" class="form-control" id="floatingInputUsername" placeholder="password" name="password" required autofocus>
                 <label for="floatingInputUsername">password</label>
               </div>
 

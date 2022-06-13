@@ -5,12 +5,12 @@ require_once("./views/includes/header.php");
 
 $home = new HomeController();
 
-$pages = ['home','cart','dashboard','updateProduct','deleteProduct','addProduct','emptyCart','show','cancelCart','register','login','checkout','logout','products','orders','addOrder','category'];
+$pages = ['home','cart','dashboard','updateProduct','deleteProduct','addProduct','emptyCart','show','cancelCart','register','login','checkout','logout','products','orders','addOrder','category','EditProduct'];
 if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){
-        $page = $_GET['page'] ;
+        $page = $_GET['page'];
         if($page === "dashboard"|| $page === "addProduct" ||  $page === "deleteProduct" ||  $page === "products" ||  $page === "orders"){
-            if(isset($_SESSION['admin']) && $_SESSION['admin']=== true){
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
                 $admin = new AdminController();
                 $admin->index($page);
             }else{

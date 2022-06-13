@@ -4,6 +4,7 @@ $product = $data->getProductById($_GET["id"]);
 
 $data = new ProductController();
 $products = $data->getAllProducts();
+$products = $data->getProductsByCategory($product["product_category_id"]);
 $categories = new CategoriesController();
 $categories = $categories->getAllCategories();
 ?>

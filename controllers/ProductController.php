@@ -33,4 +33,5 @@ class ProductController {
         return $product;
       }
     }
+    
 }

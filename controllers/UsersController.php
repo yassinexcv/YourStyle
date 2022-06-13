@@ -15,10 +15,17 @@ class UsersController
                 $_SESSION["admin"] = $result->admin;
                 $_SESSION["user_id"] = $result->user_id;
                 // Redirect::to("home");
+                if($result->admin == 1) {
+                    header("Location: " . BASE_URL."dashboard");
+                    exit;
+                }else if($result->admin == 0) {
+                    header("Location: " . BASE_URL);
+                    exit;
+                }
                 header("Location: " . BASE_URL);
             }else{
                 Session::set("error","Pseudo ou mot de passe est incorrect");
-                Redirect::to("login");
+                header("Location: " . BASE_URL."login");
             }
         }
     }
