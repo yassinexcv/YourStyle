@@ -32,7 +32,7 @@ $categories = $categories->getAllCategories();
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" /></div>
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0  h-80 w-30" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" /></div>
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder"><?php echo $product['product_title']; ?></h1>
                     <div class="fs-5 mb-5">
@@ -43,10 +43,7 @@ $categories = $categories->getAllCategories();
                     <p class="lead"><?php echo $product['product_description']; ?></p>
                     <div class="d-flex">
                         <div class="bynow">
-                            <button class="btn btn-success" onclick="addProduct()">ajouter</button>
-                        </div>
-                        <div class="cart px-4 px-lg-3  ">
-                            <a class="btn btn-primary" href="cart" role="button">Cart</a>
+                            <button class="btn btn-success" onclick="addProduct()">ajouter a votre panier </button>
                         </div>
                     </div>
                 </div>
@@ -113,8 +110,12 @@ $categories = $categories->getAllCategories();
             Swal.fire(
                 'Felicitation!',
                 'Ton produit est ajouté a votre panier !',
-                'Bravo !'
-            )
+                'success !'
+            ).then(function() {
+                window.location.href = "cart";
+            });
+
+            
         } else {
             localStorage.setItem('userInfo<?php if (isset($_SESSION["user_id"])) echo $_SESSION["user_id"] ?>', JSON.stringify([data]));
         }

@@ -10,7 +10,7 @@
 </head>
 <body>
  <?php include ("navbar.php") ?>
- <div class="row">
+ <div class="row bg-light">
      <div class="col-md-10 mx-auto m-3">
         <?php
             include('./views/includes/alerts.php');

@@ -22,17 +22,17 @@ $categories = $categories->getAllCategories();
     <link href="./public/css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style=" overflow-x:hidden; background-image: url('https://ecommerce.fm/wp-content/uploads/2020/07/fashion-ecommerce-scaled.jpg');background-repeat: no-repeat;background-size: cover;">
   
     <!-- Section-->
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+    <section class="mt-3"  >
+        <div class="container ">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php foreach ($products as $product) : ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" />
+                            <img class="card-img-top" style="height:286px; width:286px;" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" />
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $product['product_title']; ?></h5>
                                 <p class="card-text"><?php echo $product['product_description']; ?></p>
@@ -57,12 +57,7 @@ $categories = $categories->getAllCategories();
             </div>
 
     </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
-        </div>
-    </footer>
+    
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

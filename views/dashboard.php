@@ -24,14 +24,14 @@ $categories = $categories->getAllCategories();
     <title>Dashboard</title>
 </head>
 
-<body>
+<body style="overflow-x:hidden; ">
 
     <!------ Include the above in your HEAD tag ---------->
 
 
-    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+    <div class="d-flex flex-column  flex-lg-row h-lg-full bg-surface-secondary">
         <!-- Vertical Navbar -->
-        <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
+        <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical" style="z-index: 99;">
             <div class="container-fluid">
                 <!-- Toggler -->
                 <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ $categories = $categories->getAllCategories();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php BASE_URL ?>addProduct">
                                 <i class="bi bi-box-seam"></i> Produit
                             </a>
                         </li>
@@ -70,12 +70,12 @@ $categories = $categories->getAllCategories();
         </nav>
         <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="flex justify-content-center align-items-center row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
                     <?php foreach ($products as $product) : ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" />
+                            <img  class="card-img-top h-80 w-30" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image']  ?>"   alt="<?php echo $product['product_title']; ?>" />
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $product['product_title']; ?></h5>
                                 <p class="card-text"><?php echo $product['product_description']; ?></p>
@@ -86,9 +86,17 @@ $categories = $categories->getAllCategories();
                                         <p class="text-muted">$<?php echo $product['product_price']; ?></p>
                                         <strike class="badge badge-dark p-2"><?php echo $product['old_price']; ?>$</strike>
                                     </div>
-                                    <div class="btn p-4 "> 
-                                        <a href="<?php echo BASE_URL; ?>EditProduct/<?php echo $product['product_id']; ?>" class="btn btn-primary px-4 col-md-12 "  > <i class="bi bi-pencil-square"></i> </a>
-                                        <a href="<?php echo BASE_URL; ?>/admin/delete/<?php echo $product['product_id']; ?>" class="btn btn-danger px-4 col-md-12 " > <i class="bi bi-trash"></i> </a>
+                                    <div class=" d-flex justify-content-around btn p-4 "> 
+                                        <form action="EditProduct" method="post">
+                                            <input type="hidden" value="<?php echo $product['product_id']; ?>" name="id">
+                                            <button class="btn btn-primary mx-2 px-4 col-md-12 "  > <i class="bi bi-pencil-square"></i> </button>
+                                        </form>
+                                        <form action="DeleteProduct" method="post">
+                                            <input type="hidden" value="<?php echo $product['product_id']; ?>" name="id">
+                                            <button class="btn btn-danger mx-2 px-4 col-md-12 "  > <i class="bi bi-trash"></i> </button>
+                                        </form>
+
+                                        <!-- <a href="<?php echo BASE_URL; ?>/admin/delete/<?php echo $product['product_id']; ?>" class="btn btn-danger px-4 col-md-12 " > <i class="bi bi-trash"></i> </a> -->
                                     </div>
                                 </div>
                                 <!-- Product actions-->

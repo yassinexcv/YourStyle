@@ -14,6 +14,18 @@ $categories = $categories->getAllCategories();
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo BASE_URL;?>">Accueil <span class="sr-only"></span></a>
       </li>
+     
+     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          catrgories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="z-index: 99;">
+          <?php foreach($categories as $category):?>
+            <a class='dropdown-item' href='<?= BASE_URL ?>?page=category&id=<?php echo $category['cat_id']; ?>'><?=$category["cat_title"]?></a>
+          <?php endforeach;?>
+        </div>
+      </li>
       <li class="nav-item ">
         <a class="nav-link" href="<?php echo BASE_URL;?>cart"><i class="bi-cart-fill me-1"></i>
           Panier
@@ -30,25 +42,15 @@ $categories = $categories->getAllCategories();
         <?php if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true):?>
             <!-- <input type="text" value="<?php echo $_SESSION["username"]?>"> -->
           <a class="dropdown-item" href="#"><?php echo $_SESSION["fullname"];?></a>
-          <a class="dropdown-item" href="<?php echo BASE_URL;?>logout">Déconnexion</a>
           <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true):?>
-           <a class="dropdown-item" href="<?php echo BASE_URL;?>dashboard">Admin <span class="sr-only"></span></a>
-          <?php endif;?> 
+           <a class="dropdown-item" href="<?php echo BASE_URL;?>dashboard">dashboard <span class="sr-only"></span></a>
+           <?php endif;?> 
+           <a class="dropdown-item" href="<?php echo BASE_URL;?>logout">Déconnexion</a>
         <?php else:?>  
           <a class="dropdown-item" href="<?php echo BASE_URL;?>register">Inscription</a>
           <a class="dropdown-item" href="<?php echo BASE_URL;?>login">Connexion</a>
         </div>
         <?php endif;?> 
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          catrgories
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <?php foreach($categories as $category):?>
-            <a class='dropdown-item' href='<?= BASE_URL ?>?page=category&id=<?php echo $category['cat_id']; ?>'><?=$category["cat_title"]?></a>
-          <?php endforeach;?>
-        </div>
       </li>
     </ul>
   </div>
