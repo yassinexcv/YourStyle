@@ -64,7 +64,7 @@ if (isset($_POST["submit"])){
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_weight">short DESCRIPTION</label>
             <div class="col-md-4">
-                <input id="product_description" name="short_desc" placeholder="PRODUCT DEscription" class="form-control input-md" required="" type="text">
+                <input maxlength = "40" id="product_description" name="short_desc" placeholder="PRODUCT DEscription" class="form-control input-md" required="" type="text">
 
             </div>
         </div>
@@ -78,7 +78,7 @@ if (isset($_POST["submit"])){
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="product_name_fr">prix</label>
+            <label type="number" class="col-md-4 control-label" for="product_name_fr">prix</label>
             <div class="col-md-4">
                 <input name="product_price" placeholder="prix " class="form-control input-md" required="" type="text">
 
@@ -87,7 +87,7 @@ if (isset($_POST["submit"])){
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_name_fr">old prix</label>
             <div class="col-md-4">
-                <input name="old_price" placeholder="old prix " class="form-control input-md" required="" type="text">
+                <input type="number" name="old_price" placeholder="old prix " class="form-control input-md" required="" type="text">
 
             </div>
         </div>

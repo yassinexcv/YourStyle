@@ -11,7 +11,7 @@ class User
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
         } catch (PDOException $ex) {
-            echo "error : " . $ex . getMessage();
+            echo "error : " . $ex->getMessage();
         }
     }
 
@@ -32,4 +32,24 @@ class User
         // $stmt->close();
         $stmt = null;
     }
+    static public function getAll()
+    {
+        $stmt = DB::connect()->prepare('SELECT * FROM users');
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $users;
+    }
+    static public function getUserById($data)
+    {
+        $stmt = DB::connect()->prepare('SELECT * FROM users WHERE user_id = :id');
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_OBJ);
+        return $user;
+    }
+    static public function deleteUser($data)
+    {
+        $stmt = DB::connect()->prepare('DELETE FROM users WHERE user_id = :id');
+        $stmt->bindParam(':id', $data['id']);
+}
 }

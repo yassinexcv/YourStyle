@@ -60,7 +60,7 @@ $categories = $categories->getAllCategories();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php BASE_URL ?>Users">
                                 <i class="bi bi-people"></i> Users
                             </a>
                         </li>
@@ -78,7 +78,7 @@ $categories = $categories->getAllCategories();
                             <img  class="card-img-top h-80 w-30" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image']  ?>"   alt="<?php echo $product['product_title']; ?>" />
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $product['product_title']; ?></h5>
-                                <p class="card-text"><?php echo $product['product_description']; ?></p>
+                                <p class="card-text h-20 "><?php echo $product['short_desc']; ?></p>
                                 <div class="card-body p-4">
                                     <div class="text-center">
 
@@ -91,9 +91,9 @@ $categories = $categories->getAllCategories();
                                             <input type="hidden" value="<?php echo $product['product_id']; ?>" name="id">
                                             <button class="btn btn-primary mx-2 px-4 col-md-12 "  > <i class="bi bi-pencil-square"></i> </button>
                                         </form>
-                                        <form action="DeleteProduct" method="post">
+                                        <form action="deleteProduct" method="post">
                                             <input type="hidden" value="<?php echo $product['product_id']; ?>" name="id">
-                                            <button class="btn btn-danger mx-2 px-4 col-md-12 "  > <i class="bi bi-trash"></i> </button>
+                                            <button class="btn btn-danger mx-2 px-4 col-md-12 " name="delete" > <i class="bi bi-trash"></i> </button>
                                         </form>
 
                                         <!-- <a href="<?php echo BASE_URL; ?>/admin/delete/<?php echo $product['product_id']; ?>" class="btn btn-danger px-4 col-md-12 " > <i class="bi bi-trash"></i> </a> -->

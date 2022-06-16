@@ -56,4 +56,33 @@ class UsersController
        session_destroy();
        header("Location: " . BASE_URL);
     }
+    public function getAllUsers(){
+        $users = User::getAll();
+        return $users;
+    }
+    public function getUserById($id){
+
+        
+            $data = array(
+                'id' => $id
+            );
+            $user = User::getUserById($data);
+            return $user;
+        
+    }
+    public function deleteUser($id){
+        if(isset($id)){
+            $data = array(
+                'id' => $id
+            );
+            $result = User::deleteUser($data);
+            if($result === "ok"){
+                Session::set("success","User deleted successfully");
+                header("Location: " . BASE_URL."users");
+            }else{
+                echo $result;
+            }
+        }
+    }
+
 }

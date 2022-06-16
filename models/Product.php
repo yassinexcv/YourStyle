@@ -70,4 +70,15 @@ class Product{
       $stmt = null;
 
 }
+    static public function deleteProduct($id){
+      
+      $stmt = DB::connect()->prepare('DELETE FROM products WHERE product_id = :id');
+      $stmt->bindParam(':id', $id);
+      if ($stmt->execute()) {
+        return "ok";
+      }else{
+        return "error";
+      }
+      $stmt = null;
+}
 }

@@ -12,16 +12,18 @@
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" href="./public/css/registration.css">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
           <title>Login</title>
       </head>
       <body>
-  <div class="container">
-    <div class="row">
+  <div class="d-flex justify-content-center align-items-center h-full ">
+  <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_ecnepkno.json"  background="transparent"  speed="1"  style="width: 800px; height: 800px;"  loop autoplay></lottie-player>
+    <div class="row container">
       <div class="col-lg-10 col-xl-9 mx-auto">
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-          <div class="card-img-left d-none d-md-flex">
-            <!-- Background image for card set in CSS! -->
-          </div>
+         
+          
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">login</h5>
             <form method="POST">
@@ -45,6 +47,7 @@
               <hr class="my-4">
 
             </form>
+          
           </div>
         </div>
       </div>

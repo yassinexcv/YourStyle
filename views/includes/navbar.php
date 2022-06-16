@@ -41,7 +41,7 @@ $categories = $categories->getAllCategories();
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php if(isset($_SESSION["logged"]) && $_SESSION["logged"] === true):?>
             <!-- <input type="text" value="<?php echo $_SESSION["username"]?>"> -->
-          <a class="dropdown-item" href="#"><?php echo $_SESSION["fullname"];?></a>
+          <a class="dropdown-item" href="<?php echo BASE_URL;?>Profil"><?php echo $_SESSION["fullname"];?></a>
           <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true):?>
            <a class="dropdown-item" href="<?php echo BASE_URL;?>dashboard">dashboard <span class="sr-only"></span></a>
            <?php endif;?> 

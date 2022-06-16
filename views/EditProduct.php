@@ -13,6 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $data->updateProduct();
 } else header("Location: dashboard");
 ?>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <form class="form-horizontal" method="POST" enctype="multipart/form-data">
     <fieldset>
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_weight">short DESCRIPTION</label>
             <div class="col-md-4">
-                <input id="product_description" name="short_desc" value="<?php echo $product['short_desc'] ?>" placeholder="PRODUCT DEscription" class="form-control input-md" required="" type="text">
+                <input maxlength = "40" id="product_description" name="short_desc" value="<?php echo $product['short_desc'] ?>" placeholder="PRODUCT DEscription" class="form-control input-md" required="" type="text">
 
             </div>
         </div>
@@ -77,27 +80,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="price">prix</label>
             <div class="col-md-4">
-                <input name="product_price" placeholder="prix " value="<?php echo $product['product_price'] ?>" class="form-control input-md" required="" type="text">
+                <input type="number" name="product_price" placeholder="prix " value="<?php echo $product['product_price'] ?>" class="form-control input-md" required="" type="text">
 
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="old price">old prix</label>
             <div class="col-md-4">
-                <input name="old_price" placeholder="old prix " value="<?php echo $product['old_price'] ?>" class="form-control input-md" required="" type="text">
+                <input type="number" name="old_price" placeholder="old prix " value="<?php echo $product['old_price'] ?>" class="form-control input-md" required="" type="text">
 
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="price">image</label>
             <div class="col-md-4">
-                <input type ="hidden" name="product_current_image"  value="<?php echo $product['product_image'] ?>" class="form-control input-md" required="" type="text">
+                <input type="hidden" name="product_current_image" value="<?php echo $product['product_image'] ?>" class="form-control input-md" required="" type="text">
                 <img src="./public/products/<?php echo $product['product_image'] ?>" width="400" height="400">
 
 
             </div>
-        <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
-
+            <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?>">
+        </div>
 
         <!-- File Button -->
         <div class="form-group">

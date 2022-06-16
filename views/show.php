@@ -27,7 +27,7 @@ $categories = $categories->getAllCategories();
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body style="overflow-x:hidden; ">
 
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -55,25 +55,25 @@ $categories = $categories->getAllCategories();
         <div class="container px-4 px-lg-5 mt-5">
             <!-- <input type="text" hidden value=""> -->
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php for ($i = 0; $i < 4 ; $i++) : ?>
+                <?php for ($i = 0; $i < 4 && $i < count($products); $i++) : ?>
                     <div class="col mb-5">
-                        <div class="card h-100">
+                        <div class="card h-100 w-80">
                             <!-- Product image-->
-                            <img class="card-img-top" src="<?php echo BASE_URL; ?>./public/products/<?= $products[$i]['product_image'] ?>" alt="<?php echo $products[$i]['product_title']; ?>" />
+                            <img class="card-img-top" style="height:200px;" src="<?php echo BASE_URL; ?>./public/products/<?= $products[$i]['product_image'] ?>" alt="<?php echo $products[$i]['product_title']; ?>" />
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $products[$i]['product_title']; ?></h5>
-                                <p class="card-text"><?php echo $products[$i]['product_description']; ?></p>
+                                <h5 class="card-title text-center" style="height:60px;" ><?php echo $products[$i]['product_title']; ?></h5>
+                                <p class="card-text text-center" style="height:50px;" ><?php echo $products[$i]['short_desc']; ?></p>
                                 <div class="card-body p-4">
                                     <div class="text-center">
 
                                         <h5 class="fw-bolder">Fancy Product</h5>
-                                        <p class="text-muted">$<?php echo $products[$i]['product_price']; ?></p>
-                                        <strike class="badge badge-dark p-2"><?php echo $products[$i]['old_price']; ?>$</strike>
+                                        <p class="text-muted text-center">$<?php echo $products[$i]['product_price']; ?></p>
+                                        <strike class="badge badge-dark p-2 text-center"><?php echo $products[$i]['old_price']; ?>$</strike>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a href="?page=show&id=<?php echo $products[$i]['product_id']; ?>" class="btn btn-sm btn-outline-success">View</a></div>
+                                    <div class="text-center text-center"><a href="?page=show&id=<?php echo $products[$i]['product_id']; ?>" class="btn btn-sm btn-outline-success">View</a></div>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@ $categories = $categories->getAllCategories();
 
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark w-100 ">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
         </div>
@@ -106,8 +106,16 @@ $categories = $categories->getAllCategories();
         if (find) {
             find = JSON.parse(find);
             find.push(data);
+           
             localStorage.setItem('userInfo<?php if (isset($_SESSION["user_id"])) echo $_SESSION["user_id"] ?>', JSON.stringify(find)); // add product to cart
-            Swal.fire(
+           
+
+        } else {
+            console.log(find);
+            localStorage.setItem('userInfo<?php if (isset($_SESSION["user_id"])) echo $_SESSION["user_id"] ?>', JSON.stringify([data]));
+           
+        }
+        Swal.fire(
                 'Felicitation!',
                 'Ton produit est ajouté a votre panier !',
                 'success !'
@@ -115,10 +123,6 @@ $categories = $categories->getAllCategories();
                 window.location.href = "cart";
             });
 
-            
-        } else {
-            localStorage.setItem('userInfo<?php if (isset($_SESSION["user_id"])) echo $_SESSION["user_id"] ?>', JSON.stringify([data]));
-        }
     }
 
 </script>

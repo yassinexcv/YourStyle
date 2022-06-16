@@ -96,4 +96,16 @@ class ProductController {
         }
       }
     }
+    public function deleteProduct(){
+      if(isset($_POST['delete'])){
+        $id = $_POST['id'];
+        $result = Product::deleteProduct($id);
+        if($result === "ok"){
+          Session::set("success","Product deleted successfully");
+          header("Location: " . BASE_URL."dashboard");
+        }else{
+          echo $result;
+        }
+      }
+    }
 }  
