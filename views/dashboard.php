@@ -54,7 +54,7 @@ $categories = $categories->getAllCategories();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php BASE_URL ?>addCategory">
                                 <i class="bi bi-bookmark-plus"></i> Category
                                 
                             </a>

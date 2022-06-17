@@ -5,11 +5,11 @@ require_once("./views/includes/header.php");
 
 $home = new HomeController();
 
-$pages = ['home','cart','dashboard','updateProduct','deleteProduct','addProduct','emptyCart','show','cancelCart','register','login','checkout','logout','products','orders','addOrder','category','EditProduct','addProduct','Users','Profil'];
+$pages = ['home','cart','dashboard','updateProduct','deleteProduct','addProduct','emptyCart','show','cancelCart','register','login','checkout','logout','products','orders','addOrder','category','EditProduct','addProduct','Users','Profil','addCategory','ShowCategory','deletCategory'];
 if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){
         $page = $_GET['page'];
-        if($page === "dashboard"|| $page === "addProduct" ||  $page === "deleteProduct" ||  $page === "products" ||  $page === "orders" || $page === "Users"){
+        if($page === "dashboard"|| $page === "addProduct" ||  $page === "deleteProduct" ||  $page === "products" ||  $page === "orders" || $page === "Users" || $page === "Profil" || $page === "addCategory" || $page === "ShowCategory" || $page === "deletCategory"){
             if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
                 $admin = new AdminController();
                 $admin->index($page);

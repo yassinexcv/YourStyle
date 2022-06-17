@@ -50,7 +50,7 @@ $categories = $categories->getAllCategories();
             </div>
     </section>
     <!-- Related items section-->
-    
+
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <!-- <input type="text" hidden value=""> -->
@@ -61,8 +61,8 @@ $categories = $categories->getAllCategories();
                             <!-- Product image-->
                             <img class="card-img-top" style="height:200px;" src="<?php echo BASE_URL; ?>./public/products/<?= $products[$i]['product_image'] ?>" alt="<?php echo $products[$i]['product_title']; ?>" />
                             <div class="card-body">
-                                <h5 class="card-title text-center" style="height:60px;" ><?php echo $products[$i]['product_title']; ?></h5>
-                                <p class="card-text text-center" style="height:50px;" ><?php echo $products[$i]['short_desc']; ?></p>
+                                <h5 class="card-title text-center" style="height:60px;"><?php echo $products[$i]['product_title']; ?></h5>
+                                <p class="card-text text-center" style="height:50px;"><?php echo $products[$i]['short_desc']; ?></p>
                                 <div class="card-body p-4">
                                     <div class="text-center">
 

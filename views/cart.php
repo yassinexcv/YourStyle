@@ -1,48 +1,6 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+<link rel="stylesheet" href="./public/css/cart.css">
 
-body {
-  font-family: 'Manrope', sans-serif;
-  background:#eee;
-}
 
-.size span {
-  font-size: 11px;
-}
-
-.color span {
-  font-size: 11px;
-}
-
-.product-deta {
-  margin-right: 70px;
-}
-
-.gift-card:focus {
-  box-shadow: none;
-}
-
-.pay-button {
-  color: #fff;
-}
-
-.pay-button:hover {
-  color: #fff;
-}
-
-.pay-button:focus {
-  color: #fff;
-  box-shadow: none;
-}
-
-.text-grey {
-  color: #a39f9f;
-}
-
-.qty i {
-  font-size: 11px;
-}
-</style>
 <div class="container mt-5 mb-5">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">
@@ -54,8 +12,8 @@ body {
                        
                     </div>
                     
-                    <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button">Proceed to Pay</button></div>
-                    <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button" id="clear">vider la cart </button></div>
+                    <a href="<?php BASE_URL ?>checkout" class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-success btn-block btn-lg ml-2 pay-button"  type="button">Valider</button></a>
+                    <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded"><button class="btn btn-danger btn-block btn-lg ml-2 clear-button" type="button" id="clear">vider la cart </button></div>
 
                 </div>
             </div>
