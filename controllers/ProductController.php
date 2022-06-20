@@ -57,20 +57,14 @@ class ProductController {
       }
     }
 
-    public function uploadPhoto($oldImage = null)
+    public function uploadPhoto()
     {
         $dir = "public/products";
-        $time = time();
-        $name = str_replace(' ', '-', strtolower($_FILES["image"]["name"]));
-        $type = $_FILES["image"]["type"];
-        $ext = substr($name, strpos($name, '.'));
-        $ext = str_replace('.', '', $ext);
-        $name = preg_replace("/.[^.\s]{3,4}$/", "", $name);
-        $imageName = $name . '-' . $time . '.' . $ext;
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $dir . "/" . $imageName)) {
-            return $imageName;
-        }
-        return $oldImage;
+        $image = $_FILES['image'];
+        $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $imageName = time() . "." . $ext;
+         move_uploaded_file($image["tmp_name"], $dir . "/" . $imageName);
+         return $imageName;
     }
     public function updateProduct()
     {
