@@ -24,7 +24,7 @@ if (isset($_POST["register"])) {
   <title>Register</title>
 </head>
 
-<body>
+<body  style="overflow-x:hidden; ">
   <div class="d-flex justify-content-center align-items-center h-full">
     <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_gn0tojcq.json" background="transparent" speed="1" style="width: 900px; height: 900px;" loop autoplay></lottie-player>
     <div class="row container">

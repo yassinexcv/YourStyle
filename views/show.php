@@ -17,7 +17,7 @@ $categories = $categories->getAllCategories();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Item - Start Bootstrap Template</title>
+       
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -25,6 +25,7 @@ $categories = $categories->getAllCategories();
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="./public/css/styles.csss" rel="stylesheet" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 
 <body style="overflow-x:hidden; ">
@@ -34,9 +35,9 @@ $categories = $categories->getAllCategories();
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0  h-80 w-30" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" /></div>
                 <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder"><?php echo $product['product_title']; ?></h1>
+                    <h1 class="display-5 fw-bolder"><?php echo $product['product_title']; ?> </h1>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through"><?php echo $product['product_price']; ?>$</span>
+                        <span class="text-decoration-line-through"><?php echo $product['product_price']; ?>$ prix</span>
                         <p><strike><?php echo $product['old_price']; ?>$</strike></p>
                     </div>
                     <h1 class="lead"><?php echo $product['short_desc']; ?></h1>
@@ -50,7 +51,10 @@ $categories = $categories->getAllCategories();
             </div>
     </section>
     <!-- Related items section-->
-
+        <div>
+            <h2 class="text-center">suggestion par catégorie</h2>
+            
+        </div>
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <!-- <input type="text" hidden value=""> -->
@@ -67,7 +71,7 @@ $categories = $categories->getAllCategories();
                                     <div class="text-center">
 
                                         <h5 class="fw-bolder">Fancy Product</h5>
-                                        <p class="text-muted text-center">$<?php echo $products[$i]['product_price']; ?></p>
+                                        <p class="text-muted text-center">$<?php echo $products[$i]['product_price']; ?> prix </p>
                                         <strike class="badge badge-dark p-2 text-center"><?php echo $products[$i]['old_price']; ?>$</strike>
                                     </div>
                                 </div>
@@ -87,7 +91,7 @@ $categories = $categories->getAllCategories();
     <!-- Footer-->
     <footer class="py-5 bg-dark w-100 ">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+            <p class="m-0 text-center text-white">Copyright crée par Yassine Touti</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->

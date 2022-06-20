@@ -13,10 +13,14 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" href="./public/css/registration.css">
           <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
+          <link rel="stylesheet" href="https://unpkg.com/@webpixels/css@1.1/dist/index.css">
+
 
           <title>Login</title>
       </head>
-      <body>
+
+      <body  style="overflow-x:hidden; ">
   <div class="d-flex justify-content-center align-items-center h-full ">
   <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_ecnepkno.json"  background="transparent"  speed="1"  style="width: 800px; height: 800px;"  loop autoplay></lottie-player>
     <div class="row container">

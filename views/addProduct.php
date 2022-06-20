@@ -80,7 +80,7 @@ if (isset($_POST["submit"])){
         <div class="form-group">
             <label type="number" class="col-md-4 control-label" for="product_name_fr">prix</label>
             <div class="col-md-4">
-                <input name="product_price" placeholder="prix " class="form-control input-md" required="" type="text">
+                <input name="product_price" placeholder="prix " class="form-control input-md" required="" type="number">
 
             </div>
         </div>

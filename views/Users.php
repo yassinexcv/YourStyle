@@ -21,7 +21,8 @@ $data = $user->getAllUsers();
                       <th scope="col" class="border-0 text-uppercase font-medium">Fullname</th>
                       <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
                       <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Role</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">adress de livraison</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Phone</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -34,7 +35,9 @@ $data = $user->getAllUsers();
                       <td><?= $userinfo->fullname ?></td>
                         <td><?= $userinfo->username ?></td>
                         <td><?= $userinfo->email ?></td>
-                        <td><?= $userinfo->admin ?></td>
+                        <td><?= $userinfo->adress_facture ?></td>
+                        <td><?= $userinfo->numero_tele ?></td>
+                        
                     </tr>
                     <?php } ?>
                 </tbody>

@@ -4,15 +4,24 @@ $data = new ProductController();
 $products = $data->getProductsByCategory($_GET["id"]);
 ?>
 
-<div>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@webpixels/css@1.1/dist/index.css">
 
-    <?php
-    if (count($products) == 0) {
-        echo "il y a pas de produit dans cette categorie";
-    }
-    ?>
-  
-    <section class="py-5" style="background-image: url('https://ecommerce.fm/wp-content/uploads/2020/07/fashion-ecommerce-scaled.jpg'); " >
+</head>
+
+
+
+    <body style=  "overflow-x:hidden;">
+        <div>
+            <?php
+            if (count($products) == 0) {
+                echo "il y a pas de produit dans cette categorie";
+            }
+            ?>
+        </div>
+
+         <section class="py-5" style=" background-image: url('https://ecommerce.fm/wp-content/uploads/2020/07/fashion-ecommerce-scaled.jpg');  ">
 
         <div>
             <div class="d-flex flex-wrap justify-content-center " style="width:100%;">
@@ -20,7 +29,7 @@ $products = $data->getProductsByCategory($_GET["id"]);
                     <div class="m-4">
                         <div class="card h-100" style="width:300px;">
                             <!-- Product image-->
-                            <img class="card-img-top"  src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" />
+                            <img class="card-img-top" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" />
                             <div class="card-body " style="width:200px;">
                                 <h5 class="card-title"><?php echo $product['product_title']; ?></h5>
                                 <p class="card-text"><?php echo $product['short_desc']; ?></p>
@@ -44,4 +53,7 @@ $products = $data->getProductsByCategory($_GET["id"]);
             </div>
         </div>
     </section>
-</div>
+
+    </body>
+
+   

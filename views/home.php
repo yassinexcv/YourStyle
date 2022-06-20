@@ -21,6 +21,9 @@ $categories = $categories->getAllCategories();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="./public/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@webpixels/css@1.1/dist/index.css">
+
 </head>
 
 <body style=" overflow-x:hidden; background-image: url('https://ecommerce.fm/wp-content/uploads/2020/07/fashion-ecommerce-scaled.jpg');background-repeat: no-repeat;background-size: cover;">
@@ -40,7 +43,7 @@ $categories = $categories->getAllCategories();
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" style="height:286px; width:286px;" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" />
+                            <img class="card-img-top" style="height:286px; width:100%;" src="<?php echo BASE_URL; ?>./public/products/<?= $product['product_image'] ?>" alt="<?php echo $product['product_title']; ?>" />
                             <div class="card-body">
                                 <h5 class="card-title text-center" style="height:50px;" ><?php echo $product['product_title']; ?></h5>
                                 <p class="card-text text-center" style="height:80px;" ><?php echo $product['short_desc']; ?></p>
