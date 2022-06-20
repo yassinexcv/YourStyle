@@ -1,0 +1,217 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 20 juin 2022 à 18:14
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.0.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `phpstore`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+CREATE TABLE `categories` (
+  `cat_id` int(11) NOT NULL,
+  `cat_title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
+(1, 'Chemise'),
+(2, 'Pantalon'),
+(3, 'short'),
+(4, 'T-shert'),
+(5, 'sweet'),
+(12, 'TEST');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `username` varchar(250) NOT NULL,
+  `product` varchar(250) NOT NULL,
+  `total` float NOT NULL,
+  `num_tele` int(11) NOT NULL,
+  `adress_facture` varchar(500) NOT NULL,
+  `statut` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `products`
+--
+
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL,
+  `product_title` varchar(255) NOT NULL,
+  `product_category_id` int(11) NOT NULL,
+  `product_price` float NOT NULL,
+  `old_price` float NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `product_description` text NOT NULL,
+  `short_desc` text NOT NULL,
+  `product_image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `product_price`, `old_price`, `product_quantity`, `product_description`, `short_desc`, `product_image`) VALUES
+(8, 'T-shirt ', 4, 20, 24, 11, ' haut audacieux signé Jordan. Confectionné en mesh de polyester recyclé, il présente des imprimés vintage MJ contrastés qui ressortent sur le tissu. Ce produit est entièrement fabriqué à partir de fibres de polyester recyclé.', 'Jordan ', '1655725774.jpg'),
+(9, 'Jordan Flight Heritage', 4, 23, 34, 21, 'Démarquez-vous avec ce haut audacieux signé Jordan. Confectionné en mesh de polyester recyclé, il présente des imprimés vintage MJ contrastés qui ressortent sur le tissu. Ce produit est entièrement fabriqué à partir de fibres de polyester recyclé.', 'T-shirt Jordan Jumpman ', 'c24e67037d0d439092aaf9be00102c75-1655372152.jpg'),
+(10, 'Jordan Sport DNA', 4, 45, 56, 22, 'Arborez un style basketball rétro avec ce tee-shirt en coton décontracté. Les motifs inspirés des maillots de sport dans le dos apportent une touche classique, tandis que le motif tie-dye rehausse le look.', 'Tee-shirt pour Homme', 'a8ddb044b777453b86bca6ec7f3eb998-1655372167.jpg'),
+(11, 'Jordan Jumpman', 4, 21, 31, 11, 'Entrez dans la lumière avec ce tee-shirt classique Jordan Brand. Confectionné dans un coton doux et confortable, il arbore un logo Jumpman classique brodé sur la poitrine.', 'Tee-shirt à manches courtes pour Homme', '49b62a36e4e34926bbd17592386abdd5-1655372183.jpg'),
+(17, 'Sweet Nike', 5, 10, 18, 19, 'Confectionné dans un tissu Fleece doux et confortable, le sweat à capuche Nike Sportswear Club Fleece est un incontournable qui vous confère un style classique.', 'Nike Sportswear Club Fleece', '2d5dbdef87044c0d8ef102b0deb05ddb-1655332340.jpg'),
+(19, 'Sweet Nike', 5, 12, 17, 13, 'Confectionné dans un tissu Fleece doux et confortable, le sweat à capuche Nike Sportswear Club Fleece est un incontournable qui vous confère un style classique.', 'MANCHESTER ', '901c3a10a9fc4f3aafcd6d2d3b4875bb-1655332437.jpg'),
+(20, 'Sweet Nike', 5, 19, 21, 9, 'Confectionné dans un tissu Fleece doux et confortable, le sweat à capuche Nike Sportswear Club Fleece est un incontournable qui vous confère un style classique.', 'NEW ERA HERITAGE HOODY - Sweatshirt', 'b39f9eebfb0d47e1aed4af520e3e7873-1655332506.jpg'),
+(21, 'Sweet Nike', 5, 19, 28, 5, 'Confectionné dans un tissu Fleece doux et confortable, le haut Nike Sportswear Club Fleece est un incontournable affichant un logo brodé sur le côté gauche de la poitrine pour un look stylé au quotidien.', 'NBA DISTRESSED SLEEVE - Sweatshirt', 'ec5c5f9d76314aec80faa9fea8ab3cbd-1655332997.jpg'),
+(22, 'BERGAMOT - Short', 3, 22, 36, 11, 'Laissez lesprit de 1979 vous guider vers de nouveaux horizons avec le short Nike Dri-FIT Heritage. Sinspirant des clubs de running Nike International historiques, ce short présente des logos et motifs rétro tout en intégrant des technologies et détails innovants. Ce modèle doux intègre un espace de rangement pour ranger votre haut lorsque vous avez besoin de vous découvrir. Ce produit est fabriqué avec au moins 50 % de fibres de polyester recyclé.', 'Nike Dri-FIT Heritage', '4083a4c1ca044e88803d64bade334c9c-1655370921.jpg'),
+(23, 'INDICODE JEANS ALDRICH - Short', 3, 46, 63, 22, 'Ce short orné  une multitude de logos Nike sur les côtés vous offre un style dont vous ne pourrez plus vous passer. La coupe plus ample au niveau des cuisses et l ourlet tombant au niveau du genou offrent une tenue décontractée avec une protection confortable. Enfilez un tee-shirt ou un sweat à capuche assorti pour afficher un look monochrome estival.', 'Nike Sportswear', 'e342cb1485f142a38e4b0aee72efefbe-1655371028.jpg'),
+(24, 'JJIRICK JJICON AMA - Short en jean', 3, 45, 89, 42, 'Affichez un style urbain et 100 % Jordan sur le terrain. Ce short léger, classique et décontracté est confectionné en mesh respirant. Ce modèle intègre la technologie anti-transpiration Dri-FIT et arbore l emblématique motif à losanges, pour un look stylé tout au long de la journée.', 'Jordan Sport Dri-FIT', '41d9543fe51a4152acdd56f089e56601-1655371328.jpg'),
+(25, 'CASUAL FIT - Short', 3, 23, 34, 45, 'Affirmez votre personnalité au bord de la piscine. Ce short est confectionné dans un tissu sergé résistant et comporte une doublure en mesh. Les zips et embouts de cordon métallisés apportent une touche luxueuse. Ce produit est entièrement fabriqué à partir de fibres de polyester recyclé.', 'Jordan Essentials', '4c8656f2e69b4009a6df7de7e76fec27-1655371294.jpg'),
+(26, 'Nike Sportswear Club Fleece', 2, 22, 27, 19, 'Le pantalon cargo Nike Sportswear Club Fleece apporte une touche athlétique au look cargo classique. Confectionné dans un tissu doux brossé, il vous offre un confort optimal tout au long de la journée.', 'Pantalon cargo pour Homme', 'f3b591246fa7422d87f0f7a3075e5c22-1655331302.jpg'),
+(27, 'ONSLINUS CROP MIX - Pantalon classique', 2, 22, 50, 45, 'Le pantalon de jogging Nike Sportswear associe une silhouette classique à un tissu léger pour un look polyvalent et élégant prêt à affronter la chaleur.', 'Nike Sportswear Club', 'cd895d006b694f53a0910d76167d7305-1655371645.jpg'),
+(28, 'PANTS PLUS - Pantalon classique', 2, 45, 66, 23, 'Le pantalon cargo Nike Sportswear Club Fleece apporte une touche athlétique au look cargo classique. Confectionné dans un tissu doux brossé, il vous offre un confort optimal tout au long de la journée.', 'Nike Sportswear Club Fleece', 'a09b1a92eb324dc1b90d5202c92319c0-1655372252.jpg'),
+(29, 'BOLO SMART JOGGERS - Pantalon classique', 2, 24, 34, 56, 'Confectionné en jersey doux, le pantalon de jogging Nike Sportswear Club est un incontournable qui vous offre un style à la fois classique et élégant, réellement taillé pour le quotidien.', 'Nike Sportswear Club', 'a47176661a9e4f2eb8b60544f6bfab37-1655372481.jpg'),
+(30, 'OXFORD SLIM FIT - Chemise', 1, 22, 26, 4, 'Cette chemise hawaienne en viscose à manches courtes est imprimée fleurs all over. Elle possède un col thermocollant sur le dessus; col renforcé par une bande thermocollante permettant de garantir un maintien optimal de celui-ci; et une coupe regular, pour un porté casual et cool. Elle associe bien avec un short pour cet été.', 'Chemise tissée pour Homme', 'c9f8f3ca4eb045d6a2a82e9c9daaecf9-1655463072.jpg'),
+(31, 'Chemise ', 1, 22, 34, 4, 'Cette chemise hawaienne en viscose à manches courtes est imprimée fleurs all over. Elle possède un col thermocollant sur le dessus; col renforcé par une bande thermocollante permettant de garantir un maintien optimal de celui-ci; et une coupe regular, pour un porté casual et cool. Elle associe bien avec un short pour cet été.', 'Chemise tissée pour Homme', 'f40956f3d8c9417d89169ebe19ee60b5-1655462990.jpg'),
+(33, 'Chemise ', 1, 17, 50, 4, 'Cette chemise hawaienne en viscose à manches courtes est imprimée fleurs all over. Elle possède un col thermocollant sur le dessus; col renforcé par une bande thermocollante permettant de garantir un maintien optimal de celui-ci; et une coupe regular, pour un porté casual et cool. Elle associe bien avec un short pour cet été.', 'Chemise tissée pour Homme', 'c821903644764b978f7047342928a6d9-1655463054.jpg'),
+(35, 'Chemise ', 1, 22, 50, 19, 'Chemise tissée pour Homme\r\nCette chemise hawaienne en viscose à manches courtes est imprimée fleurs all over. Elle possède un col thermocollant sur le dessus; col renforcé par une bande thermocollante permettant de garantir un maintien optimal de celui-ci; et une coupe regular, pour un porté casual et cool. Elle associe bien avec un short pour cet été.', 'Chemise tissée pour Homme', '3db4da48fbd649edada95839e71e3f14-1655568659.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `adress_facture` varchar(200) NOT NULL,
+  `numero_tele` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`user_id`, `fullname`, `username`, `adress_facture`, `numero_tele`, `email`, `password`, `admin`) VALUES
+(1, 'TOUTI yassine', 'assade', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'admin@gmail.com', '$2y$12$qBvO6A0rIRDMSyOPsNhCFeEpd7LH3OA7BMbNhv3D4ssLh0Wx.V07S', 0),
+(2, 'YASSINE', 'TAHA', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'admin@admin', '$2y$12$zn8i9lABRPDsJ2zNyp9YK.0qrj9BL4xUa3LZs5fC3io5xETCfytei', 0),
+(4, 'a', 'a', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'a@a.aa', '$2y$12$uOuZrahoP.pb3J44VEJHKO6nEtpjgRxoHkO36Rp4rs/dJvN89rt2e', 0),
+(5, 'dachoucha', 'abdo', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'abdo@dachoucha.com', '$2y$12$wP8mAdtQkE/vzXWAu3haM.iDp7a9wo57U5Lnx80CXOVgb9/dKA/sm', 0),
+(6, 'test', 'test', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'test@test.com', '$2y$12$Q3WoKCtyGmyWh2e57zMjju0UOt340Be9aDzoUXVK1dVm11OP.KyPC', 0),
+(7, 'test2', 'test2', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'test2@test.test', '$2y$12$sC79dz5WHOYW1qtk.gaBeeGr7bwWs1rvjKHOlMTlPf2ygLvPxf.ea', 0),
+(8, 'zaza', 'zozo', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'zizi@zizi.com', '$2y$12$RaDBZyprpGMMaA6Gk.hUwO.46niY4Hn5kWyEDta/lKMOSPy5ndxN6', 0),
+(9, 'ouas', 'min', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'ou@o.c', '$2y$12$4XVFDNkIPQ5D6kwJ2goGxeNvMnVgbLMPPZnNHmsAIgvJzMjKWYqgq', 0),
+(13, 'admin1', 'admin1', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'admin@admin.a', '$2y$12$/QGcLOP2wDbGJKhOsNtiSefaxn7iDXmOZNBOL8gdEvBv/I/2F5MPO', 1),
+(14, 'abdelghafour', 'abdo', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'abdo@abdo.com', '$2y$12$S9TYScers55ditJBj3xFWOcFO6w41WPpY8V6xfDBNf996HOJ3q.Fq', 0),
+(15, 'hamza', 'hamzaa', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'hamza.h@ha', '$2y$12$6PIp9.E.VHbFwYo7z2stJ.40O.U0H1qi09iAIcaMlng.1EqAQ.A8q', 0),
+(16, 'testt', 'test3', '04 rue el basra que sidi abdelkrim safi', '0612345678', 't@t.t', '$2y$12$4l5Tgyfut/L6gjHZ9.aIquODzFY.PVKPb/YHN2.2LKv6Uejw3bigu', 0),
+(17, 'az', 'az', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'az@az.az', '$2y$12$7uv/rkgsjSQUPuExneJFCubSpkX83FZ6/hG2HfsfX8.brfDGQ1iDq', 0),
+(18, 'salah', 'akil', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'salah.akil@a.a', '$2y$12$XWx.wbzPwdU3iGEaP.kDRO5rSZfp6r6BTPXOrCp5WzssDGw2uW3sK', 0),
+(19, 'Mehdi', 'Gdimi', '04 rue el basra que sidi abdelkrim safi', '0612345678', 'mehdi@gdemi.com', '$2y$12$8iHTk6t.MOWEarXOlaNCM.cnZmdNW54LvRrE8nM7j1kzu0yaeYz.e', 0),
+(20, 'TEST', 'TEST', '', '', 'TEST@TEST.TEST', '$2y$12$79Qa1EEa.TIDBhuLT6zfRuNVDU.1nNMtzBfNueZCpbrO4x/4QnaAK', 0),
+(21, 'test', 'test', '', '', 'test@test', '$2y$12$tFdAIRej3YR5VEPOvRPZAe6S4YID5JN/zZEhvLqw/yyrlePFzdxYC', 0);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Index pour la table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `product_category_id` (`product_category_id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `products`
+--
+ALTER TABLE `products`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
