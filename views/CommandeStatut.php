@@ -22,7 +22,8 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <div>
-                                                Review Your Order
+                                                Review Your Order from hear
+
                                             </div>
 
                                         </h4>
